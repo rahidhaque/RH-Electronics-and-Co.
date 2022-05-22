@@ -4,7 +4,7 @@ import banner from '../../Assets/banner.png'
 const Banner = () => {
     return (
         <div>
-            <div class="hero h-full lg:h-[60vh]" style={{
+            <div class="hero h-full lg:h-[80vh]" style={{
                 background: `url(${banner})`
             }} >
                 <div class="hero-overlay bg-opacity-20"></div>

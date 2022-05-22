@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "RH Co. Z690 Motherboard 12th Gen ",
+        "description": "RH XMWSO001TM  Wireless Mouse made of metal material. it is very strong and durable. Its sandblasted anode texture is full, anti-fingerprint, more wear-resistant. Adopt aluminum alloy rollers, and the surface is sandblasted and anodized, which can effectively prevent slip and sweat. Supports dual connection mode of Bluetooth and wireless adapter.",
+        "minQuantity": 27,
+        "availableQuantity": 225,
+        "price": 75000,
+        "img": "https://www.startech.com.bd/image/cache/catalog/motherboard/asus/rog-maximus-z690-formula/rog-maximus-z690-formula-01-500x500.jpg"
+    },
+    {
+        "id": 2,
+        "name": "RH XMWSO001TM Wireless Mouse",
+        "description": "RH XMWSO001TM  Wireless Mouse made of metal material. it is very strong and durable. Its sandblasted anode texture is full, anti-fingerprint, more wear-resistant. Adopt aluminum alloy rollers, and the surface is sandblasted and anodized, which can effectively prevent slip and sweat. Supports dual connection mode of Bluetooth and wireless adapter.",
+        "minQuantity": 100,
+        "availableQuantity": 785,
+        "price": "450",
+        "img": "https://www.startech.com.bd/image/cache/catalog/mouse/xiaomi/xmws001tm/xmws001tm-2-500x500.jpg"
+    }
+]
