@@ -2,7 +2,6 @@ import React from 'react';
 
 const Product = ({ product }) => {
     const { name, description, minQuantity, availableQuantity, price, img } = product;
-    console.log(typeof (minQuantity));
     return (
         <div class="card lg:card-side bg-base-100 shadow-xl max-w-xl">
             <figure><img src={img} alt="product" /></figure>

@@ -1,13 +1,53 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import registrationImg from '../../Assets/Register.gif'
+import auth from '../../firebase.init';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import Loading from '../Shared/Loading';
 
 const Register = () => {
+    const navigate = useNavigate();
+    const [
+        createUserWithEmailAndPassword,
+        userEmailPass,
+        loadingEmailPass,
+        errorEmailPass,
+    ] = useCreateUserWithEmailAndPassword(auth);
+
+    const [
+        updateProfile,
+        updating,
+        updateError
+    ] = useUpdateProfile(auth);
+
+    let error;
+
+
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = async data => {
+        console.log(data);
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName: data.name });
+    }
+
+    if (loadingEmailPass || updating) {
+        return <Loading></Loading>;
+    }
+
+    if (errorEmailPass) {
+        error = <span className="label-text-alt text-warning">{errorEmailPass?.message}</span>;
+    }
+
+    if (updateError) {
+        error = <span className="label-text-alt text-warning">{updateError?.message}</span>;
+    }
+
+    if (userEmailPass) {
+        navigate('/');
+    }
     return (
-        <div className=''>
+        <div>
             <div class="hero h-full lg:h-[70vh] bg-base-200">
                 <div class="hero-content flex-col lg:flex-row">
                     <div class="lg:text-left max-w-lg mr-10">
@@ -94,6 +134,9 @@ const Register = () => {
                                         {errors.password?.type === 'minLength' && <span className="label-text-alt text-warning">{errors.password.message}</span>}
                                         {errors.password?.type === 'maxLength' && <span className="label-text-alt text-warning">{errors.password.message}</span>}
                                     </label>
+                                </div>
+                                <div className='my-2'>
+                                    {error}
                                 </div>
                                 <input className='btn w-full max-w-xs btn-success text-white' type="submit" value="Register" />
                             </form>
