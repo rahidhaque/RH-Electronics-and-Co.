@@ -12,7 +12,6 @@ function App() {
           <Route path='/home' element={<Home></Home>}></Route>
         </Routes>
       </Navbar>
-
     </div>
   );
 }

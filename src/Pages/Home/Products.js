@@ -12,7 +12,7 @@ const Products = () => {
 
 
     return (
-        <div className='mx-auto'>
+        <div className='mx-auto px-0 lg:px-24'>
             <h1 className='text-2xl text-neutral text-center mt-10'>Our Manufactured Products</h1>
             <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5 mx-auto my-5'>
                 {
