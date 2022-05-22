@@ -48,7 +48,7 @@ const BussinessSummary = () => {
                 </div>
                 <div class="stat place-items-center">
                     <div class="stat-title">
-                        <img src={workers} alt="" />
+                        <img src={products} alt="" />
                     </div>
                     <div class="stat-value">150+</div>
                     <div class="stat-title"><span className='font-bold'>Products</span></div>
