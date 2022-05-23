@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import registrationImg from '../../Assets/Register.gif'
 import auth from '../../firebase.init';
-import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import Loading from '../Shared/Loading';
 
 const Register = () => {
@@ -14,6 +14,13 @@ const Register = () => {
         loadingEmailPass,
         errorEmailPass,
     ] = useCreateUserWithEmailAndPassword(auth);
+
+    const [
+        signInWithGoogle,
+        userGoogle,
+        loadingGoogle,
+        errorGoogle
+    ] = useSignInWithGoogle(auth);
 
     const [
         updateProfile,
@@ -31,7 +38,7 @@ const Register = () => {
         await updateProfile({ displayName: data.name });
     }
 
-    if (loadingEmailPass || updating) {
+    if (loadingEmailPass || updating || loadingGoogle) {
         return <Loading></Loading>;
     }
 
@@ -43,7 +50,11 @@ const Register = () => {
         error = <span className="label-text-alt text-warning">{updateError?.message}</span>;
     }
 
-    if (userEmailPass) {
+    if (errorGoogle) {
+        error = <span className="label-text-alt text-warning">{errorGoogle?.message}</span>;
+    }
+
+    if (userEmailPass || userGoogle) {
         navigate('/');
     }
     return (
@@ -141,8 +152,15 @@ const Register = () => {
                                 <input className='btn w-full max-w-xs btn-success text-white' type="submit" value="Register" />
                             </form>
                         </div>
-                        <div className='mb-5 text-center'>
+                        <div className='mb-2 text-center'>
                             <small><span className='text-success font-bold'>Already have an account to RH Electronics and Co.? Please</span> <Link to='/login'>Login</Link></small>
+                        </div>
+                        <div className="divider mb-5">OR</div>
+                        <div className='w-full max-w-xl mx-24'>
+                            <button
+                                onClick={() => signInWithGoogle()}
+                                className="btn btn-accent  mb-2"
+                            >Continue with Google</button>
                         </div>
                     </div>
                 </div>

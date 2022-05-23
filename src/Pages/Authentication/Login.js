@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import login from '../../Assets/login.gif'
@@ -15,6 +15,13 @@ const Login = () => {
         emailPassError,
     ] = useSignInWithEmailAndPassword(auth);
 
+    const [
+        signInWithGoogle,
+        userGoogle,
+        loadingGoogle,
+        errorGoogle
+    ] = useSignInWithGoogle(auth);
+
     let error;
 
 
@@ -24,7 +31,7 @@ const Login = () => {
         await signInWithEmailAndPassword(data.email, data.password);
     }
 
-    if (loadingEmailPass) {
+    if (loadingEmailPass || loadingGoogle) {
         return <Loading></Loading>;
     }
 
@@ -32,7 +39,11 @@ const Login = () => {
         error = <span className="label-text-alt text-warning">{emailPassError?.message}</span>;
     }
 
-    if (userEmailPass) {
+    if (errorGoogle) {
+        error = <span className="label-text-alt text-warning">{errorGoogle?.message}</span>;
+    }
+
+    if (userEmailPass || userGoogle) {
         navigate('/');
     }
 
@@ -108,8 +119,15 @@ const Login = () => {
                                 <input className='btn w-full max-w-xs btn-success text-white' type="submit" value="Login" />
                             </form>
                         </div>
-                        <div className='mb-5 text-center'>
+                        <div className='mb-2 text-center'>
                             <small><span className='text-success font-bold'>New to RH Electronics and Co.? Please</span> <Link to='/register'>Register</Link></small>
+                        </div>
+                        <div className="divider mb-5">OR</div>
+                        <div className='w-full max-w-xl mx-24'>
+                            <button
+                                onClick={() => signInWithGoogle()}
+                                className="btn btn-accent mb-2"
+                            >Continue with Google</button>
                         </div>
                     </div>
                 </div>
