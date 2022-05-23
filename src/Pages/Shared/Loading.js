@@ -5,7 +5,7 @@ const Loading = () => {
     return (
         <div>
             <div className="h-screen flex justify-center items-center">
-                <div className="spinner-border animate-spin inline-block w-8 h-4 border-4 rounded-full" role="status">
+                <div className="spinner-border animate-spin inline-block w-10 h-5 border-4 rounded-full" role="status">
                     <span><img src={loading} alt="" /></span>
                 </div>
             </div>

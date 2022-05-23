@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init'
 import { signOut } from 'firebase/auth';
@@ -28,7 +28,7 @@ const Navbar = ({ children }) => {
                             <ul class="menu menu-horizontal">
                                 <li><NavLink to='/' className='rounded-lg'>Home</NavLink></li>
                                 <li><NavLink to='/blogs' className='rounded-lg'>Blogs</NavLink></li>
-                                <li><NavLink to='/dashboard' className='rounded-lg'>Dashboard</NavLink></li>
+                                {user && <li><NavLink to='/dashboard' className='rounded-lg'>Dashboard</NavLink></li>}
                                 {user ? <li><button onClick={logout} className="btn btn-ghost rounded-lg">Logout</button></li> : <li> <NavLink to='/login' className='rounded-lg'>Login</NavLink></li>}
                             </ul>
                         </div>
@@ -41,7 +41,7 @@ const Navbar = ({ children }) => {
 
                         <li><NavLink to='/' className='rounded-lg'>Home</NavLink></li>
                         <li><NavLink to='/blogs' className='rounded-lg'>Blogs</NavLink></li>
-                        <li><NavLink to='/dashboard' className='rounded-lg'>Dashboard</NavLink></li>
+                        {user && <li><NavLink to='/dashboard' className='rounded-lg'>Dashboard</NavLink></li>}
                         {user ? <li><button onClick={logout} className="btn btn-ghost rounded-lg">Logout</button></li> : <li><NavLink to='/login' className='rounded-lg'>Login</NavLink></li>}
 
                     </ul>
