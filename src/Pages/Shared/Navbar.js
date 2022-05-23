@@ -1,7 +1,16 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init'
+import { signOut } from 'firebase/auth';
 
 const Navbar = ({ children }) => {
+    const navigate = useNavigate();
+    const [user] = useAuthState(auth);
+    const logout = () => {
+        signOut(auth);
+        navigate('/login');
+    }
     return (
         <div>
             <div class="drawer">
@@ -20,7 +29,7 @@ const Navbar = ({ children }) => {
                                 <li><NavLink to='/' className='rounded-lg'>Home</NavLink></li>
                                 <li><NavLink to='/blogs' className='rounded-lg'>Blogs</NavLink></li>
                                 <li><NavLink to='/dashboard' className='rounded-lg'>Dashboard</NavLink></li>
-                                <li><NavLink to='/login' className='rounded-lg'>Login</NavLink></li>
+                                {user ? <li><button onClick={logout} className="btn btn-ghost rounded-lg">Logout</button></li> : <li> <NavLink to='/login' className='rounded-lg'>Login</NavLink></li>}
                             </ul>
                         </div>
                     </div>
@@ -33,7 +42,7 @@ const Navbar = ({ children }) => {
                         <li><NavLink to='/' className='rounded-lg'>Home</NavLink></li>
                         <li><NavLink to='/blogs' className='rounded-lg'>Blogs</NavLink></li>
                         <li><NavLink to='/dashboard' className='rounded-lg'>Dashboard</NavLink></li>
-                        <li><NavLink to='/login' className='rounded-lg'>Login</NavLink></li>
+                        {user ? <li><button onClick={logout} className="btn btn-ghost rounded-lg">Logout</button></li> : <li><NavLink to='/login' className='rounded-lg'>Login</NavLink></li>}
 
                     </ul>
 
