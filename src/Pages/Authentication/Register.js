@@ -5,6 +5,7 @@ import registrationImg from '../../Assets/Register.gif'
 import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import Loading from '../Shared/Loading';
+import useToken from '../../Hooks/useToken';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ const Register = () => {
     ] = useUpdateProfile(auth);
 
     let error;
-
+    const [token] = useToken(userEmailPass || userGoogle);
 
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = async data => {
@@ -54,7 +55,7 @@ const Register = () => {
         error = <span className="label-text-alt text-warning">{errorGoogle?.message}</span>;
     }
 
-    if (userEmailPass || userGoogle) {
+    if (token) {
         navigate('/');
     }
     return (

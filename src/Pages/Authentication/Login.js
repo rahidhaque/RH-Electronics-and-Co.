@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import login from '../../Assets/login.gif'
 import auth from '../../firebase.init';
+import useToken from '../../Hooks/useToken';
 import Loading from '../Shared/Loading';
 
 const Login = () => {
@@ -23,6 +24,7 @@ const Login = () => {
     ] = useSignInWithGoogle(auth);
 
     let error;
+    const [token] = useToken(userEmailPass || userGoogle);
 
 
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -43,7 +45,7 @@ const Login = () => {
         error = <span className="label-text-alt text-warning">{errorGoogle?.message}</span>;
     }
 
-    if (userEmailPass || userGoogle) {
+    if (token) {
         navigate('/');
     }
 
