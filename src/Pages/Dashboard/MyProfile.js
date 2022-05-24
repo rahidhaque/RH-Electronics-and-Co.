@@ -106,7 +106,7 @@ const MyProfile = () => {
                                 type="number"
                                 placeholder="Your Number"
                                 className="input input-bordered w-full max-w-xs mb-2"
-                                defaultValue={profileInfo.phone}
+                                defaultValue={profileInfo?.phone}
                                 {...register("phoneNumber", {
                                     required: {
                                         value: true,
@@ -129,7 +129,7 @@ const MyProfile = () => {
                                 type="text"
                                 placeholder="Your District"
                                 className="input input-bordered w-full max-w-xs mb-2"
-                                defaultValue={profileInfo.district}
+                                defaultValue={profileInfo?.district}
                                 {...register("district", {
                                     required: {
                                         value: true,
@@ -151,7 +151,7 @@ const MyProfile = () => {
                                 type="text"
                                 placeholder="Your Profile Link"
                                 className="input input-bordered w-full max-w-xs mb-2"
-                                defaultValue={profileInfo.profile}
+                                defaultValue={profileInfo?.profile}
 
                                 {...register("profile", {
                                     required: {

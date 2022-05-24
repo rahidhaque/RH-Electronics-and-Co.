@@ -1,13 +1,13 @@
-import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
-import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
+import DeleteConfirmOrder from './DeleteConfirmOrder';
 import MyOrderRow from './MyOrderRow';
 
 const MyOrders = () => {
     const { email } = useParams();
+    const [deleteOrder, setDeleteOrder] = useState(null);
     const url = `http://localhost:5000/purchase/${email}`;
 
     const { data: purchases, isLoading, refetch } = useQuery('purchases', () => fetch(url).then(res => res.json()));
@@ -17,6 +17,7 @@ const MyOrders = () => {
     }
     return (
         <div>
+            <h3 className='text-center font-bold mb-5'>My Orders</h3>
             <div class="overflow-x-auto">
                 <table class="table table-zebra w-full">
 
@@ -27,6 +28,7 @@ const MyOrders = () => {
                             <th>Image</th>
                             <th>Delivery Address</th>
                             <th>Quantity</th>
+                            <th>Cancel Order</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,11 +38,19 @@ const MyOrders = () => {
                                 purchase={purchase}
                                 index={index}
                                 refetch={refetch}
+                                setDeleteOrder={setDeleteOrder}
                             ></MyOrderRow>)
                         }
                     </tbody>
                 </table>
             </div>
+            {
+                deleteOrder && <DeleteConfirmOrder
+                    deleteOrder={deleteOrder}
+                    refetch={refetch}
+                    setDeleteOrder={setDeleteOrder}
+                ></DeleteConfirmOrder>
+            }
         </div>
     );
 };
