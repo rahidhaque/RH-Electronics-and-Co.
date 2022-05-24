@@ -6,6 +6,11 @@ import RequireAuth from './Pages/Authentication/RequireAuth';
 import Purchase from './Pages/Dashboard/Purchase';
 import Home from './Pages/Home/Home';
 import Navbar from './Pages/Shared/Navbar';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import MyOrders from './Pages/Dashboard/MyOrders';
+import MyProfile from './Pages/Dashboard/MyProfile';
 
 function App() {
   return (
@@ -19,8 +24,15 @@ function App() {
           <Route path='purchase/:id' element={<RequireAuth>
             <Purchase></Purchase>
           </RequireAuth>}></Route>
+          <Route path='dashboard' element={<RequireAuth>
+            <Dashboard></Dashboard>
+          </RequireAuth>}>
+            <Route path='myorders' element={<MyOrders></MyOrders>}></Route>
+            <Route path='profile/:email' element={<MyProfile></MyProfile>}></Route>
+          </Route>
         </Routes>
       </Navbar>
+      <ToastContainer />
     </div>
   );
 }

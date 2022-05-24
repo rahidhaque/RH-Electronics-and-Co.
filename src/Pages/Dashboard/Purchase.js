@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { useQuery } from 'react-query';
-import { Link, useParams } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
+import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
-import Loading from '../Shared/Loading';
+
 
 const Purchase = () => {
     const [user] = useAuthState(auth);
@@ -45,10 +44,10 @@ const Purchase = () => {
             .then(res => res.json())
             .then(dataPurchase => {
                 if (dataPurchase.acknowledged === true) {
-                    alert(`Purchase Booked Successully`)
+                    toast.success(`Purchase Booked Successully`)
                 }
                 else {
-                    alert(`Purchase Failed`)
+                    toast.warning(`Purchase Failed`)
                 }
                 console.log(dataPurchase);
             });
@@ -163,7 +162,7 @@ const Purchase = () => {
                                         },
                                         min: {
                                             value: product.minQuantity,
-                                            message: `You have to purchase at least ${product.minQuantity} products}`,
+                                            message: `You have to purchase at least ${product.minQuantity} products`,
 
                                         },
                                         max: {
@@ -197,7 +196,7 @@ const Purchase = () => {
                 </div>
 
             </div>
-            <ToastContainer />
+
         </div>
     );
 };
