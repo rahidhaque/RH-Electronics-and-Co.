@@ -14,7 +14,13 @@ const MyProfile = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${email}`)
+        fetch(`http://localhost:5000/user/${email}`, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setProfileInfo(data))
     }, [email])
@@ -32,7 +38,8 @@ const MyProfile = () => {
         fetch(url, {
             method: 'PUT',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify(user)
         })

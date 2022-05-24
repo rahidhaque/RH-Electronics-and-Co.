@@ -31,14 +31,16 @@ const Purchase = () => {
             userName: data.displayName,
             email: data.email,
             address: data.address,
-            quantity: data.quantity
+            quantity: data.quantity,
+            price: data.quantity * product.price
         }
 
 
         fetch('http://localhost:5000/purchase', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify(purchase)
         })

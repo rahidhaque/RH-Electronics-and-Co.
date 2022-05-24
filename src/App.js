@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import MyProfile from './Pages/Dashboard/MyProfile';
+import Payment from './Pages/Dashboard/Payment';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           </RequireAuth>}>
             <Route path='myorders/:email' element={<MyOrders></MyOrders>}></Route>
             <Route path='myprofile/:email' element={<MyProfile></MyProfile>}></Route>
+            <Route path='payment/:email/:id' element={<Payment></Payment>}></Route>
           </Route>
         </Routes>
       </Navbar>

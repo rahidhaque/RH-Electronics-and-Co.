@@ -10,7 +10,12 @@ const MyOrders = () => {
     const [deleteOrder, setDeleteOrder] = useState(null);
     const url = `http://localhost:5000/purchase/${email}`;
 
-    const { data: purchases, isLoading, refetch } = useQuery('purchases', () => fetch(url).then(res => res.json()));
+    const { data: purchases, isLoading, refetch } = useQuery('purchases', () => fetch(url, {
+        method: 'GET',
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then(res => res.json()));
 
     if (isLoading) {
         return <Loading></Loading>;
@@ -28,7 +33,9 @@ const MyOrders = () => {
                             <th>Image</th>
                             <th>Delivery Address</th>
                             <th>Quantity</th>
+                            <th>Total Price</th>
                             <th>Cancel Order</th>
+                            <th>Payment Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -46,6 +53,7 @@ const MyOrders = () => {
             </div>
             {
                 deleteOrder && <DeleteConfirmOrder
+                    key={deleteOrder._id}
                     deleteOrder={deleteOrder}
                     refetch={refetch}
                     setDeleteOrder={setDeleteOrder}

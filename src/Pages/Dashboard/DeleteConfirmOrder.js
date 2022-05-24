@@ -7,7 +7,8 @@ const DeleteConfirmOrder = ({ deleteOrder, setDeleteOrder, refetch }) => {
         fetch(`http://localhost:5000/purchase/${email}`, {
             method: 'DELETE',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
             .then(res => res.json())
@@ -27,7 +28,7 @@ const DeleteConfirmOrder = ({ deleteOrder, setDeleteOrder, refetch }) => {
                     <h3 class="font-bold text-lg">Are you sure you want to delete {product}?</h3>
                     <p class="py-4 text-warning">Changes cannot be undone!</p>
                     <div class="modal-action">
-                        <button className="btn btn-xs btn-warning" onClick={() => confirmDelete()}><span className='px-2'>Remove User</span><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg></button>
+                        <button className="btn btn-xs btn-warning" onClick={() => confirmDelete()}><span className='px-2'>Remove Order</span><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg></button>
                         <label for="delete-confirm-modal" class="btn btn-xs">Cancel</label>
                     </div>
                 </div>
