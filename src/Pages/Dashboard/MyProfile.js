@@ -47,7 +47,6 @@ const MyProfile = () => {
 
     return (
         <div>
-            <h1>This is My Profile</h1>
             <div class="card w-full max-w-lg shadow-2xl bg-base-100">
                 <div class="card-body w-full">
                     <form onSubmit={handleSubmit(onSubmit)}>
