@@ -28,7 +28,7 @@ function App() {
             <Dashboard></Dashboard>
           </RequireAuth>}>
             <Route path='myorders' element={<MyOrders></MyOrders>}></Route>
-            <Route path='profile/:email' element={<MyProfile></MyProfile>}></Route>
+            <Route path='myprofile/:email' element={<MyProfile></MyProfile>}></Route>
           </Route>
         </Routes>
       </Navbar>

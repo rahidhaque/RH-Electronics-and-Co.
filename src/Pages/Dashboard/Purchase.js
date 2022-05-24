@@ -22,7 +22,7 @@ const Purchase = () => {
     let error;
 
 
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         const purchase = {
             productId: product._id,
@@ -44,7 +44,8 @@ const Purchase = () => {
             .then(res => res.json())
             .then(dataPurchase => {
                 if (dataPurchase.acknowledged === true) {
-                    toast.success(`Purchase Booked Successully`)
+                    toast.success(`Purchase Booked Successully`);
+                    reset();
                 }
                 else {
                     toast.warning(`Purchase Failed`)
