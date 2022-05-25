@@ -52,17 +52,17 @@ const Login = () => {
 
     return (
         <div className=''>
-            <div class="hero h-full lg:h-[70vh] bg-base-200">
-                <div class="hero-content flex-col lg:flex-row">
-                    <div class="lg:text-left max-w-lg mr-10">
+            <div className="hero h-full lg:h-[70vh] bg-base-200">
+                <div className="hero-content flex-col lg:flex-row">
+                    <div className="lg:text-left max-w-lg mr-10">
                         <img src={login} alt="Registration" />
                     </div>
-                    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <div class="card-body">
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                        <div className="card-body">
                             <form onSubmit={handleSubmit(onSubmit)}>
 
-                                <div class="form-control w-full">
-                                    <label class="input-group">
+                                <div className="form-control w-full">
+                                    <label className="input-group">
                                         <span className='font-bold mb-2'>Email</span>
                                     </label>
                                     <input
@@ -86,8 +86,8 @@ const Login = () => {
                                     </label>
                                 </div>
 
-                                <div class="form-control w-full">
-                                    <label class="input-group">
+                                <div className="form-control w-full">
+                                    <label className="input-group">
                                         <span className='font-bold mb-2'>Password</span>
                                     </label>
                                     <input

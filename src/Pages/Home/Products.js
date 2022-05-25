@@ -23,7 +23,6 @@ const Products = () => {
     useEffect(() => {
         // Fetch items from another resources.
         const endOffset = itemOffset + itemsPerPage;
-        console.log(`Loading items from ${itemOffset} to ${endOffset}`);
         setCurrentItems(products.slice(itemOffset, endOffset));
         setPageCount(Math.ceil(products.length / itemsPerPage));
     }, [products, itemOffset, itemsPerPage]);

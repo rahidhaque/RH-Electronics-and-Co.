@@ -69,20 +69,20 @@ const Purchase = () => {
 
     return (
         <div className='grid grid-cols-1 lg:grid-cols-2 mx-auto my-auto'>
-            <div class="card bg-base-100 shadow-xl max-w-xl">
+            <div className="card bg-base-100 shadow-xl max-w-xl">
                 <figure><img src={product.img} style={{ height: '200px', width: '200px' }} alt="product" /></figure>
-                <div class="card-body">
-                    <h2 class="card-title max-w-xl p-2">{product.name}</h2>
+                <div className="card-body">
+                    <h2 className="card-title max-w-xl p-2">{product.name}</h2>
                     <p className='max-w-xl p-2'>{product.description}</p>
                 </div>
             </div>
 
-            <div class="hero h-full bg-base-200">
-                <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <div class="card-body">
+            <div className="hero h-full bg-base-200">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card-body">
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <div class="form-control w-full">
-                                <label class="input-group mb-2">
+                            <div className="form-control w-full">
+                                <label className="input-group mb-2">
                                     <span className='font-bold'>Name</span>
                                 </label>
                                 <input
@@ -95,8 +95,8 @@ const Purchase = () => {
                                 />
                             </div>
 
-                            <div class="form-control w-full">
-                                <label class="input-group">
+                            <div className="form-control w-full">
+                                <label className="input-group">
                                     <span className='font-bold mb-2'>Email</span>
                                 </label>
                                 <input
@@ -108,8 +108,8 @@ const Purchase = () => {
                                     {...register('email')}
                                 />
                             </div>
-                            <div class="form-control w-full">
-                                <label class="input-group">
+                            <div className="form-control w-full">
+                                <label className="input-group">
                                     <span className='font-bold mb-2'>Address</span>
                                 </label>
                                 <input
@@ -128,8 +128,8 @@ const Purchase = () => {
                                 </label>
                             </div>
 
-                            <div class="form-control w-full">
-                                <label class="input-group">
+                            <div className="form-control w-full">
+                                <label className="input-group">
                                     <span className='font-bold mb-2'>Phone Number</span>
                                 </label>
                                 <input
@@ -149,8 +149,8 @@ const Purchase = () => {
                                 </label>
                             </div>
 
-                            <div class="form-control w-full">
-                                <label class="input-group">
+                            <div className="form-control w-full">
+                                <label className="input-group">
                                     <span className='font-bold mb-2'>Quantity</span>
                                 </label>
                                 <input

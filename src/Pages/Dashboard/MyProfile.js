@@ -55,11 +55,11 @@ const MyProfile = () => {
     return (
         <div>
             <h3 className='text-center font-bold mb-5'>My Profile</h3>
-            <div class="card w-full max-w-lg shadow-2xl bg-base-100">
-                <div class="card-body w-full">
+            <div className="card w-full max-w-lg shadow-2xl bg-base-100">
+                <div className="card-body w-full">
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <div class="form-control w-full">
-                            <label class="input-group mb-2">
+                        <div className="form-control w-full">
+                            <label className="input-group mb-2">
                                 <span className='font-bold'>Name</span>
                             </label>
                             <input
@@ -72,8 +72,8 @@ const MyProfile = () => {
                             />
                         </div>
 
-                        <div class="form-control w-full">
-                            <label class="input-group">
+                        <div className="form-control w-full">
+                            <label className="input-group">
                                 <span className='font-bold mb-2'>Email</span>
                             </label>
                             <input
@@ -85,8 +85,8 @@ const MyProfile = () => {
                                 {...register('email')}
                             />
                         </div>
-                        <div class="form-control w-full">
-                            <label class="input-group">
+                        <div className="form-control w-full">
+                            <label className="input-group">
                                 <span className='font-bold mb-2'>Education</span>
                             </label>
                             <input
@@ -106,8 +106,8 @@ const MyProfile = () => {
                             </label>
                         </div>
 
-                        <div class="form-control w-full">
-                            <label class="input-group">
+                        <div className="form-control w-full">
+                            <label className="input-group">
                                 <span className='font-bold mb-2'>Phone Number</span>
                             </label>
                             <input
@@ -129,8 +129,8 @@ const MyProfile = () => {
 
 
 
-                        <div class="form-control w-full">
-                            <label class="input-group">
+                        <div className="form-control w-full">
+                            <label className="input-group">
                                 <span className='font-bold mb-2'>District</span>
                             </label>
                             <input
@@ -151,8 +151,8 @@ const MyProfile = () => {
                             </label>
                         </div>
 
-                        <div class="form-control w-full">
-                            <label class="input-group">
+                        <div className="form-control w-full">
+                            <label className="input-group">
                                 <span className='font-bold mb-2'>Linkedin Profile Link</span>
                             </label>
                             <input
