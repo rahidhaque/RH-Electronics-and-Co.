@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const ManageOrderRow = ({ purchase, index, setDeleteOrder, refetch }) => {
@@ -36,9 +35,9 @@ const ManageOrderRow = ({ purchase, index, setDeleteOrder, refetch }) => {
                 }
             </td>
             <td>
-                {(price && !paid) && <span className='text-warning font-bold'>Not Paid</span>}
-                {(!shipped && paid) && <btn onClick={() => shipNow()} className='btn btn-success btn-xs'>Ship Now</btn>}
-                {(shipped) && <span className='text-success font-bold'>Shipped</span>}
+                {(price && !paid) && <span className='text-warning font-bold'>Unpaid</span>}
+                {(price && paid && !shipped) && <btn onClick={() => shipNow()} className='btn btn-success btn-xs'>Ship Now</btn>}
+                {(price && paid && shipped) && <span className='text-success font-bold'>Shipped</span>}
                 {/* {shipped ? <span className='text-success font-bold'>Shipped</span>:<btn onClick={() => shipNow()} className='btn btn-success btn-xs'>Ship Now</btn>} */}
             </td>
         </tr>

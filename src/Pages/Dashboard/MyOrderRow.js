@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const MyOrderRow = ({ purchase, index, refetch, setDeleteOrder }) => {
-    const { _id, img, product, address, quantity, price, paid, email } = purchase;
+    const { _id, img, product, address, quantity, price, paid, email, shipped } = purchase;
     return (
         <tr>
             <th>{index + 1}</th>
@@ -22,7 +22,8 @@ const MyOrderRow = ({ purchase, index, refetch, setDeleteOrder }) => {
             </td>
             <td>
                 {(price && !paid) && <Link to={`/dashboard/payment/${email}/${_id}`}><button className='btn btn-xs btn-success px-5'>Pay Now</button></Link>}
-                {(price && paid) && <span className='text-success'>Paid</span>}
+                {(price && paid && !shipped) && <span className='text-success font-bold'>Paid</span>}
+                {(price && paid && shipped) && <span className='text-success font-bold'>Shipped</span>}
             </td>
         </tr>
     );

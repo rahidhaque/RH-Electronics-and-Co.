@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
-import { useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 import DeleteConfirmOrder from './DeleteConfirmOrder';
 import ManageOrderRow from './ManageOrderRow';

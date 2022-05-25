@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ManageProductsRow = ({ product, index, refetch, setDeleteProduct }) => {
-    const { name, img, description, minQuantity, availableQuantity, price } = product;
+    const { name, img, minQuantity, availableQuantity, price } = product;
     return (
         <tr>
             <th>{index + 1}</th>
