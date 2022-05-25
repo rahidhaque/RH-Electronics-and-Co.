@@ -2,9 +2,11 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink, Outlet } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useAdmin from '../../Hooks/useAdmin';
 
 const Dashboard = () => {
     const [user] = useAuthState(auth);
+    const [admin] = useAdmin(user);
     return (
         <div class="drawer drawer-mobile mt-16">
             <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
@@ -19,12 +21,12 @@ const Dashboard = () => {
                 <label for="my-drawer-2" class="drawer-overlay"></label>
                 <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
                     {/* <!-- Sidebar content here --> */}
-                    <li className='my-2'><NavLink to={`/dashboard/myorders/${user.email}`}>My Orders</NavLink></li>
                     <li><NavLink to={`/dashboard/myprofile/${user.email}`}>My Profile</NavLink></li>
-                    <li><NavLink to={`/dashboard/addProduct`}>Add Product</NavLink></li>
-                    <li><NavLink to={`/dashboard/manageProducts`}>Manage Products</NavLink></li>
-                    <li><NavLink to={`/dashboard/manageOrders`}>Manage Orders</NavLink></li>
-                    <li><NavLink to={'/dashboard/users'}>Make Admin</NavLink></li>
+                    {!admin && <li className='my-2'><NavLink to={`/dashboard/myorders/${user.email}`}>My Orders</NavLink></li>}
+                    {admin && <li><NavLink to={`/dashboard/addProduct`}>Add Product</NavLink></li>}
+                    {admin && <li><NavLink to={`/dashboard/manageProducts`}>Manage Products</NavLink></li>}
+                    {admin && <li><NavLink to={`/dashboard/manageOrders`}>Manage Orders</NavLink></li>}
+                    {admin && <li><NavLink to={'/dashboard/users'}>Make Admin</NavLink></li>}
                 </ul>
 
             </div>
