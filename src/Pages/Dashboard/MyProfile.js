@@ -54,6 +54,7 @@ const MyProfile = () => {
 
     return (
         <div>
+            <h3 className='text-center font-bold mb-5'>My Profile</h3>
             <div class="card w-full max-w-lg shadow-2xl bg-base-100">
                 <div class="card-body w-full">
                     <form onSubmit={handleSubmit(onSubmit)}>

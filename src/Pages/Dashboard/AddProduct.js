@@ -36,7 +36,7 @@ const AddProduct = () => {
 
     return (
         <div>
-
+            <h3 className='text-center font-bold mb-5'>Add New Product</h3>
             <div className='flex justify-center items-center'>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control w-full max-w-lg">

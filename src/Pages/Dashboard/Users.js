@@ -21,6 +21,7 @@ const Users = () => {
     }
     return (
         <div>
+            <h3 className='text-center font-bold mb-5'>Make Admin</h3>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     <thead>

@@ -21,7 +21,7 @@ const ManageOrders = () => {
     }
     return (
         <div>
-            <h3 className='text-center font-bold mb-5'>My Orders</h3>
+            <h3 className='text-center font-bold mb-5'>User Orders</h3>
             <div class="overflow-x-auto">
                 <table class="table table-zebra w-full">
 
@@ -35,7 +35,7 @@ const ManageOrders = () => {
                             <th>Total Price</th>
                             <th>User Email</th>
                             <th>Cancel Order</th>
-                            <th>Payment Status</th>
+                            <th>Order Status</th>
                         </tr>
                     </thead>
                     <tbody>
