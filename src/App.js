@@ -14,6 +14,7 @@ import MyProfile from './Pages/Dashboard/MyProfile';
 import Payment from './Pages/Dashboard/Payment';
 import Users from './Pages/Dashboard/Users';
 import AddProduct from './Pages/Dashboard/AddProduct';
+import ManageProducts from './Pages/Dashboard/ManageProducts';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route path='payment/:email/:id' element={<Payment></Payment>}></Route>
             <Route path='users' element={<Users></Users>}></Route>
             <Route path='addProduct' element={<AddProduct></AddProduct>}></Route>
+            <Route path='manageProducts' element={<ManageProducts></ManageProducts>}></Route>
           </Route>
         </Routes>
       </Navbar>
