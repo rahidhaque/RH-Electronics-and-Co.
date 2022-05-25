@@ -23,6 +23,7 @@ const Dashboard = () => {
                     {/* <!-- Sidebar content here --> */}
                     <li><NavLink to={`/dashboard/myprofile/${user.email}`}>My Profile</NavLink></li>
                     {!admin && <li className='my-2'><NavLink to={`/dashboard/myorders/${user.email}`}>My Orders</NavLink></li>}
+                    {!admin && <li className='my-2'><NavLink to={`/dashboard/addReview`}>Add Review</NavLink></li>}
                     {admin && <li><NavLink to={`/dashboard/addProduct`}>Add Product</NavLink></li>}
                     {admin && <li><NavLink to={`/dashboard/manageProducts`}>Manage Products</NavLink></li>}
                     {admin && <li><NavLink to={`/dashboard/manageOrders`}>Manage Orders</NavLink></li>}
