@@ -21,6 +21,7 @@ const Dashboard = () => {
                     {/* <!-- Sidebar content here --> */}
                     <li className='my-2'><NavLink to={`/dashboard/myorders/${user.email}`}>My Orders</NavLink></li>
                     <li><NavLink to={`/dashboard/myprofile/${user.email}`}>My Profile</NavLink></li>
+                    <li><NavLink to={`/dashboard/addProduct`}>Add Product</NavLink></li>
                     <li><NavLink to={'/dashboard/users'}>Make Admin</NavLink></li>
                 </ul>
 
