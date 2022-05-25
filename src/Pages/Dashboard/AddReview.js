@@ -12,7 +12,8 @@ const AddReview = () => {
     const onSubmit = data => {
         const review = {
             name: user.displayName,
-            review: data.review
+            review: data.review,
+            rating: data.rating
         }
 
 
@@ -36,7 +37,7 @@ const AddReview = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
-                        <span className="label-text font-bold">Your Review</span>
+                        <span className="label-text font-bold">Write Review</span>
                     </label>
                     <textarea
                         type="text"
@@ -52,6 +53,36 @@ const AddReview = () => {
 
                     <label className="label">
                         {errors.review?.type === 'required' && <span className="label-text-alt text-warning">{errors.review.message}</span>}
+                    </label>
+                </div>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text font-bold">Add Rating</span>
+                    </label>
+                    <textarea
+                        type="number"
+                        placeholder="Add Rating"
+                        className="input input-bordered w-full max-w-xs"
+                        {...register("rating", {
+                            required: {
+                                value: true,
+                                message: 'Review is required'
+                            },
+                            min: {
+                                value: 1,
+                                message: 'Value of Rating must be at least 1'
+                            },
+                            max: {
+                                value: 5,
+                                message: 'Maximum Value of rating can be 5'
+                            }
+                        })}
+                    />
+
+                    <label className="label">
+                        {errors.review?.type === 'required' && <span className="label-text-alt text-warning">{errors.review.message}</span>}
+                        {errors.review?.type === 'min' && <span className="label-text-alt text-warning">{errors.review.message}</span>}
+                        {errors.review?.type === 'max' && <span className="label-text-alt text-warning">{errors.review.message}</span>}
                     </label>
                 </div>
 

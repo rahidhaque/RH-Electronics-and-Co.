@@ -18,6 +18,8 @@ const Products = () => {
             .then(data => setProducts(data))
     }, [])
 
+
+
     useEffect(() => {
         // Fetch items from another resources.
         const endOffset = itemOffset + itemsPerPage;
