@@ -20,6 +20,7 @@ import AddReview from './Pages/Dashboard/AddReview';
 import NotFound from './Pages/Shared/NotFound';
 import Blogs from './Pages/Blogs/Blogs';
 import MyProtfolio from './Pages/MyProtfolio/MyProtfolio';
+import Welcome from './Pages/Dashboard/Welcome';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path='dashboard' element={<RequireAuth>
             <Dashboard></Dashboard>
           </RequireAuth>}>
+            <Route index element={<Welcome></Welcome>}></Route>
             <Route path='myorders/:email' element={<MyOrders></MyOrders>}></Route>
             <Route path='myprofile/:email' element={<MyProfile></MyProfile>}></Route>
             <Route path='payment/:email/:id' element={<Payment></Payment>}></Route>

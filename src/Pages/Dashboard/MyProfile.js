@@ -11,7 +11,7 @@ const MyProfile = () => {
     const [profileInfo, setProfileInfo] = useState({});
     const { email } = useParams();
     const url = `https://desolate-reaches-30083.herokuapp.com/user/${email}`;
-    const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const { register, formState: { errors }, handleSubmit } = useForm();
 
     useEffect(() => {
         fetch(`https://desolate-reaches-30083.herokuapp.com/user/${email}`, {
@@ -46,7 +46,6 @@ const MyProfile = () => {
             .then(res => res.json())
             .then(dataUser => {
                 toast.success(`User Updated Successully`);
-                reset();
             });
 
     }
