@@ -6,7 +6,7 @@ import ManageOrderRow from './ManageOrderRow';
 
 const ManageOrders = () => {
     const [deleteOrder, setDeleteOrder] = useState(null);
-    const url = `http://localhost:5000/purchase`;
+    const url = `https://desolate-reaches-30083.herokuapp.com/purchase`;
 
     const { data: purchases, isLoading, refetch } = useQuery('purchases', () => fetch(url, {
         method: 'GET',

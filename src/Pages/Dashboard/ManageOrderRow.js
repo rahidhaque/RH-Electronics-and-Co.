@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const ManageOrderRow = ({ purchase, index, setDeleteOrder, refetch }) => {
     const { _id, img, product, address, quantity, price, paid, email, shipped } = purchase;
     const shipNow = () => {
-        fetch(`http://localhost:5000/purchase/${_id}`, {
+        fetch(`https://desolate-reaches-30083.herokuapp.com/purchase/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application-json',

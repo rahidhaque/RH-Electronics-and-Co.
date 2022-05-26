@@ -13,7 +13,7 @@ const Products = () => {
     const [itemOffset, setItemOffset] = useState(0);
 
     useEffect(() => {
-        fetch('http://localhost:5000/product')
+        fetch('https://desolate-reaches-30083.herokuapp.com/product')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])

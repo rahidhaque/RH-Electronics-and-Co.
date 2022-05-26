@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const DeleteConfirmOrder = ({ deleteOrder, setDeleteOrder, refetch }) => {
     const { email, product } = deleteOrder;
     const confirmDelete = () => {
-        fetch(`http://localhost:5000/purchase/${email}`, {
+        fetch(`https://desolate-reaches-30083.herokuapp.com/purchase/${email}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',

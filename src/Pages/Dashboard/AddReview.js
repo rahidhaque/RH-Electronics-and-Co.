@@ -17,7 +17,7 @@ const AddReview = () => {
         }
 
 
-        fetch('http://localhost:5000/review', {
+        fetch('https://desolate-reaches-30083.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

@@ -9,7 +9,7 @@ import auth from '../../firebase.init';
 const Purchase = () => {
     const [user] = useAuthState(auth);
     const { id } = useParams();
-    const url = `http://localhost:5000/product/${id}`;
+    const url = `https://desolate-reaches-30083.herokuapp.com/product/${id}`;
     const [product, setProduct] = useState({});
 
     useEffect(() => {
@@ -36,7 +36,7 @@ const Purchase = () => {
         }
 
 
-        fetch('http://localhost:5000/purchase', {
+        fetch('https://desolate-reaches-30083.herokuapp.com/purchase', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

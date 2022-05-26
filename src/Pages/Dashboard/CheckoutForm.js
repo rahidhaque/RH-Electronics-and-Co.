@@ -20,7 +20,7 @@ const CheckoutForm = ({ product }) => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://desolate-reaches-30083.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -92,7 +92,7 @@ const CheckoutForm = ({ product }) => {
                 purchase: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`http://localhost:5000/purchase/${user.email}/${_id}`, {
+            fetch(`https://desolate-reaches-30083.herokuapp.com/purchase/${user.email}/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

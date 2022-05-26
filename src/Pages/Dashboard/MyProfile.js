@@ -10,11 +10,11 @@ const MyProfile = () => {
     const [user] = useAuthState(auth);
     const [profileInfo, setProfileInfo] = useState({});
     const { email } = useParams();
-    const url = `http://localhost:5000/user/${email}`;
+    const url = `https://desolate-reaches-30083.herokuapp.com/user/${email}`;
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${email}`, {
+        fetch(`https://desolate-reaches-30083.herokuapp.com/user/${email}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',

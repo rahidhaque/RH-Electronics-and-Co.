@@ -6,7 +6,7 @@ const DeleteConfirmProduct = ({ deleteProduct, setDeleteProduct, refetch }) => {
     const { _id, name } = deleteProduct;
     console.log(deleteProduct);
     const confirmDelete = () => {
-        fetch(`http://localhost:5000/product/${_id}`, {
+        fetch(`https://desolate-reaches-30083.herokuapp.com/product/${_id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',

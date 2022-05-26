@@ -6,7 +6,7 @@ import ManageProductsRow from './ManageProductsRow';
 
 const ManageProducts = () => {
     const [deleteProduct, setDeleteProduct] = useState(null);
-    const { data: products, isLoading, refetch } = useQuery('products', () => fetch('http://localhost:5000/product', {
+    const { data: products, isLoading, refetch } = useQuery('products', () => fetch('https://desolate-reaches-30083.herokuapp.com/product', {
         method: 'GET',
         headers: {
             'content-type': 'application/json'

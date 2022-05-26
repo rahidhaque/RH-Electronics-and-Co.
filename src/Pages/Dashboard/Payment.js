@@ -11,7 +11,7 @@ const stripePromise = loadStripe('pk_test_51L151ALITrU3NYbNTOSZgHhtqcsAeJRekB2cq
 
 const Payment = () => {
     const { email, id } = useParams();
-    const url = `http://localhost:5000/purchase/${email}/${id}`;
+    const url = `https://desolate-reaches-30083.herokuapp.com/purchase/${email}/${id}`;
 
     const { data: product, isLoading } = useQuery(['purchase', email, id], () => fetch(url, {
         method: 'GET',
