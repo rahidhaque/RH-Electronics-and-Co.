@@ -74,6 +74,10 @@ const Purchase = () => {
                 <div className="card-body">
                     <h2 className="card-title max-w-xl p-2">{product.name}</h2>
                     <p className='max-w-xl p-2'>{product.description}</p>
+                    <p>
+                        <small>Min Quantity for Order: <span className='font-bold'>{product.minQuantity}</span></small> <br />
+                        <small>Available Quantity for Order: <span className='font-bold'>{product.availableQuantity}</span></small>
+                    </p>
                 </div>
             </div>
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../Shared/Footer';
 
 const Blogs = () => {
     return (
@@ -54,6 +55,7 @@ const Blogs = () => {
                     </p>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };
