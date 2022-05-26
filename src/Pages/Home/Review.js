@@ -1,14 +1,17 @@
+import React from 'react';
 import PrettyRating from 'pretty-rating-react';
 import { faStar, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
-import React from 'react';
+
+
 
 const Review = ({ review }) => {
     const icons = {
         star: {
             complete: faStar,
-            half: faStarHalfAlt
+            half: faStarHalfAlt,
         }
     };
+
     const colors = {
         star: ['#27213B', '#27213B', '#27213B']
     };
@@ -21,9 +24,9 @@ const Review = ({ review }) => {
             </div>
             <div className="card-body items-center text-center">
                 <p className='lg:w-80 w-100'>{review.review}</p>
-                <p><span className='fw-bold'>
-                    <PrettyRating value={review.rating} icons={icons.star} colors={colors.star} />
-                </span></p>
+                <span className='fw-bold'>
+                    <PrettyRating value={review.rating} icons={icons.star} colors={colors.star} max={5} />
+                </span>
             </div>
         </div>
     );

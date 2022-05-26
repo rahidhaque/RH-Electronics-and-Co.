@@ -9,8 +9,8 @@ const Reviews = () => {
             .then(data => setReviews(data))
     }, [])
     return (
-        <div>
-            <h1 className='text-2xl text-neutral text-center mt-10'>Reviews</h1>
+        <div className='my-20'>
+            <h1 className='text-2xl text-neutral text-center'>Reviews</h1>
             <div className='grid grid-cols-1 lg:grid-cols-3'>
                 {
                     reviews.map(review => <Review

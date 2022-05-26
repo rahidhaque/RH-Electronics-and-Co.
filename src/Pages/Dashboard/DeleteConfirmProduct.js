@@ -32,7 +32,7 @@ const DeleteConfirmProduct = ({ deleteProduct, setDeleteProduct, refetch }) => {
                     <p className="py-4 text-warning">Changes cannot be undone!</p>
                     <div className="modal-action">
                         <button className="btn btn-xs btn-warning" onClick={() => confirmDelete()}><span className='px-2'>Remove Order</span><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg></button>
-                        <label for="delete-confirm-modal" className="btn btn-xs">Cancel</label>
+                        <label htmlFor="delete-confirm-modal" className="btn btn-xs">Cancel</label>
                     </div>
                 </div>
             </div>
