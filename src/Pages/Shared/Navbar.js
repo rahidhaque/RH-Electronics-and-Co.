@@ -50,6 +50,7 @@ const Navbar = ({ children }) => {
                             <ul className="menu menu-horizontal">
                                 <li><NavLink to='/' className='rounded-lg'>Home</NavLink></li>
                                 <li><NavLink to='/blogs' className='rounded-lg'>Blogs</NavLink></li>
+                                <li><NavLink to='/protfolio' className='rounded-lg'>My Protfolio</NavLink></li>
                                 {user && <li><NavLink to='/dashboard' className='rounded-lg'>Dashboard</NavLink></li>}
                                 {user ? <li><button onClick={logout} className="btn btn-ghost rounded-lg">Logout</button></li> : <li> <NavLink to='/login' className='rounded-lg'>Login</NavLink></li>}
                             </ul>

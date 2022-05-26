@@ -19,6 +19,7 @@ import ManageOrders from './Pages/Dashboard/ManageOrders';
 import AddReview from './Pages/Dashboard/AddReview';
 import NotFound from './Pages/Shared/NotFound';
 import Blogs from './Pages/Blogs/Blogs';
+import MyProtfolio from './Pages/MyProtfolio/MyProtfolio';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path='login' element={<Login></Login>}></Route>
           <Route path='register' element={<Register></Register>}></Route>
           <Route path='blogs' element={<Blogs></Blogs>}></Route>
+          <Route path='protfolio' element={<MyProtfolio></MyProtfolio>}></Route>
           <Route path='purchase/:id' element={<RequireAuth>
             <Purchase></Purchase>
           </RequireAuth>}></Route>
